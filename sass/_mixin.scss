@@ -1,0 +1,21 @@
+@import 'var';
+
+@mixin flex-center-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin icon-styles {
+    width: $icon-size;
+    padding: $icon-padding 0 0 $icon-padding;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: $gap-size;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    text-align: center;
+}
