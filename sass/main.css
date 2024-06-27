@@ -32,8 +32,11 @@
   justify-content: center;
   align-items: center;
 }
-.icon-container img {
+.icon-container .icon-container img {
   height: 40px;
+}
+.icon-container .icon-box:hover {
+  cursor: pointer;
 }
 
 .task-bar {

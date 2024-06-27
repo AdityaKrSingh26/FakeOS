@@ -24,10 +24,16 @@
 
     .icon-container {
         @include flex-center-column;
+
+        img {
+            height: 40px;
+        }
     }
 
-    img {
-        height: 40px;
+    .icon-box{
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 
