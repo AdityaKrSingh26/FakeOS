@@ -24,15 +24,52 @@
                 <img src="./assets/recyclebinicon.png" alt="">
                 <p>Bin</p>
             </div>
-            <div class="iconBox">
+            <div class="iconBox" id="galleryIcon">
                 <img src="./assets/gallery.png" alt="">
                 <p>Gallery</p>
             </div>
-            <div class="iconBox">
+            <div class="iconBox" id="notepadIcon">
                 <img src="./assets/notepad.png" alt="">
                 <p>Notepad</p>
             </div>
 
+        </div>
+
+        <!-- Notepad Modal Container -->
+        <div class="modalContainer" id="notepadModal">
+            <div class="navBar">
+                <p class="heading">
+                    Notepad
+                </p>
+                <button id="close">X</button>
+            </div>
+        </div>
+
+        <!-- Gallery Modal Container -->
+        <div class="modalContainer" id="galleryModal">
+            <div class="navBar">
+                <p class="heading">
+                    Gallery
+                </p>
+                <button id="galleryClose">X</button>
+            </div>
+
+            <main class="carousel-container">
+                <div class="carousel">
+                    <div class="item active">
+                        <img src="assets/nature1.jpg" alt="Image 1" />
+                    </div>
+                    <div class="item">
+                        <img src="assets/nature2.jpg" alt="Image 2" />
+                    </div>
+                    <div class="item">
+                        <img src="assets/nature3.jpg" alt="Image 3" />
+                    </div>
+                </div>
+                <button class="btn prev">&lt;</button>
+                <button class="btn next">&gt;</button>
+                <div class="dots"></div>
+            </main>
         </div>
 
 
@@ -76,6 +113,8 @@
     <script src="./scripts/scripts.js"></script>
     <script src="./scripts/dateTimeScripts.js"></script>
     <script src="./scripts/startMenuScript.js"></script>
+    <script src="./scripts/modalScript.js"></script>
+    <script src="./scripts/caraouseScript.js"></script>
 </body>
 
 </html>
