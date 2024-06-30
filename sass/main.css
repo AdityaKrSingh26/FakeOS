@@ -172,6 +172,10 @@
   display: none;
 }
 
+#currencyModal {
+  display: none;
+}
+
 .carousel-container {
   position: relative;
   display: flex;
