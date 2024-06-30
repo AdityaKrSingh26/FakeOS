@@ -48,3 +48,28 @@ document.addEventListener("click", (event) => {
         galleryModal.style.display = "none";
     }
 });
+
+// ----------------- Currency MODAL -----------------
+let currencyIcon = document.getElementById('currencyIcon');
+let currencyModal = document.getElementById('currencyModal');
+let currencyClose = document.getElementById('currencyClose');
+
+currencyIcon.addEventListener("click", (event) => {
+    console.log("currencyIcon button clicked");
+    event.stopPropagation();
+    if (currencyModal.style.display === "none" || currencyModal.style.display === "") {
+        currencyModal.style.display = "block";
+    } else {
+        currencyModal.style.display = "none";
+    }
+});
+
+currencyClose.addEventListener("click", () => {
+    currencyModal.style.display = "none";
+});
+
+document.addEventListener("click", (event) => {
+    if (currencyModal.style.display === "block" && !currencyModal.contains(event.target) && event.target !== currencyIcon) {
+        currencyModal.style.display = "none";
+    }
+});

@@ -33,6 +33,7 @@
   align-items: center;
   height: 70px;
   width: 70px;
+  margin: 5px 0px;
 }
 .iconContainer .iconBox img {
   height: 40px;
@@ -105,14 +106,14 @@
 .modalContainer {
   height: 400px;
   width: 600px;
-  background-color: #f3f3f3;
+  background-color: rgb(207, 201, 201);
   position: absolute;
   left: 50%;
-  right: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   border: 1px solid gainsboro;
   border-radius: 4px;
   overflow: hidden;
-  transform: translate(-50%, -50%);
 }
 .modalContainer .navBar {
   height: 30px;
@@ -136,6 +137,36 @@
 #notepadModal {
   display: none;
 }
+#notepadModal .toolBar {
+  margin: 10px 0px;
+  height: 30px;
+  background-color: rgb(207, 201, 201);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+}
+#notepadModal .toolBar button {
+  height: 100%;
+  width: 100px;
+  border: none;
+  background-color: gray;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+#notepadModal .textEditor {
+  height: 100%;
+}
+#notepadModal #text {
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  font-family: "Arimo", sans-serif;
+  border: none;
+  outline: none;
+}
 
 #galleryModal {
   display: none;
@@ -154,7 +185,7 @@
 .carousel-container .carousel .item {
   opacity: 0;
   width: 100%;
-  height: 100%;
+  height: 340px;
   display: none;
   transition: opacity 0.5s ease-in-out;
 }
@@ -206,4 +237,64 @@
 }
 .carousel-container .next {
   right: 0%;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.active {
+  background-color: gray;
+}
+
+.main {
+  background-color: aliceblue;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+.main .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.main .inputGroup {
+  margin-bottom: 10px;
+}
+.main label {
+  font-size: 20px;
+}
+.main .btn {
+  width: 200px;
+}
+.main #finalAmount {
+  font-family: "Lobster", cursive;
+  display: none;
+  margin: 50px auto;
+}
+.main #finalAmount h2 {
+  font-size: 50px;
+}
+.main .finalValue {
+  font-family: "Amiri", serif;
 }/*# sourceMappingURL=main.css.map */
