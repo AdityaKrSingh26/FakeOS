@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FakeOS</title>
+    <link rel="stylesheet" href="./sass/main.css">
+</head>
+
+<body>
+
+
+    <div class="bodyWrapper">
+
+        <div class="iconContainer">
+
+            <div class="iconBox">
+                <img src="./assets/edgeicon.png" alt="">
+                <p>Edge</p>
+            </div>
+            <div class="iconBox">
+                <img src="./assets/recyclebinicon.png" alt="">
+                <p>Bin</p>
+            </div>
+            <div class="iconBox" id="horoscopeIcon">
+                <img src="./assets/horoscope.png" alt="">
+                <p>Horoscope</p>
+            </div>
+            <div class="iconBox" id="galleryIcon">
+                <img src="./assets/gallery.png" alt="">
+                <p>Gallery</p>
+            </div>
+            <div class="iconBox" id="notepadIcon">
+                <img src="./assets/notepad.png" alt="">
+                <p>Notepad</p>
+            </div>
+
+
+        </div>
+
+        <!-- Notepad Modal Container -->
+        <div class="modalContainer" id="notepadModal">
+            <div class="navBar">
+                <p class="heading">
+                    Notepad
+                </p>
+                <button id="close">X</button>
+            </div>
+            <div class="toolBar">
+                <button id="increaseFont">A+</button>
+                <button id="decreaseFont">A-</button>
+                <button id="bold">Bold</button>
+                <button id="underline">Underline</button>
+                <button id="clearAll">Clear All</button>
+            </div>
+            <div class="textEditor">
+                <textarea name="text" id="text"></textarea>
+            </div>
+        </div>
+
+        <!-- Gallery Modal Container -->
+        <div class="modalContainer" id="galleryModal">
+            <div class="navBar">
+                <p class="heading">
+                    Gallery
+                </p>
+                <button id="galleryClose">X</button>
+            </div>
+
+            <main class="carousel-container">
+                <div class="carousel">
+                    <div class="item active">
+                        <img src="assets/nature1.jpg" alt="Image 1" />
+                    </div>
+                    <div class="item">
+                        <img src="assets/nature2.jpg" alt="Image 2" />
+                    </div>
+                    <div class="item">
+                        <img src="assets/nature3.jpg" alt="Image 3" />
+                    </div>
+                </div>
+                <button class="btn prev">&lt;</button>
+                <button class="btn next">&gt;</button>
+                <div class="dots"></div>
+            </main>
+        </div>
+
+        <!-- horoscope convertor Modal Container -->
+        <div class="modalContainer" id="horoscopeModal">
+
+            <div class="navBar">
+                <p class="heading">Daily Horoscope</p>
+                <button id="horoscopeClose">X</button>
+            </div>
+
+            <div class="horoscopeContainer">
+                <div class="main">
+                    <div class="row">
+                        <div class="inputGroup">
+                            <select class="formControl from" id="zodiac">
+                                <option value="">Select Zodiac…</option>
+                                <option value="aries">Aries</option>
+                                <option value="taurus">Taurus</option>
+                                <option value="gemini">Gemini</option>
+                                <option value="cancer">Cancer</option>
+                                <option value="leo">Leo</option>
+                                <option value="virgo">Virgo</option>
+                                <option value="libra">Libra</option>
+                                <option value="scorpio">Scorpio</option>
+                                <option value="sagittarius">Sagittarius</option>
+                                <option value="capricorn">Capricorn</option>
+                                <option value="aquarius">Aquarius</option>
+                                <option value="pisces">Pisces</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="textCenter">
+                        <button class="btn convert" type="button">Get Horoscope</button>
+                    </div>
+                    <div id="finalAmount" class="text-center">
+                        <p>Your Horoscope:
+                        <p id="finalValue" style="color:green;">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="taskBar">
+            <div class="menuContainer">
+                <img id="windowIcon" src="./assets/windows.png" alt="">
+            </div>
+            <div class="dateTimeContainer">
+                <p id="time"></p>
+                <p id="date"></p>
+            </div>
+        </div>
+
+        <div class="startMenu">
+            <div class="itemContainer">
+                <div class="itemBox">
+                    <img src="./assets/calculator.png" alt="">
+                    <p>Calcuator</p>
+                </div>
+                <div class="itemBox">
+                    <img src="./assets/edgeicon.png" alt="">
+                    <p>Microsoft Edge</p>
+                </div>
+                <div class="itemBox">
+                    <img src="./assets/gallery.png" alt="">
+                    <p>Gallery</p>
+                </div>
+                <div class="itemBox">
+                    <img src="./assets/paint.png" alt="">
+                    <p>Paint</p>
+                </div>
+                <div class="itemBox">
+                    <img src="./assets/notepad.png" alt="">
+                    <p>Notepad</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/dateTimeScripts.js"></script>
+    <script src="./scripts/startMenuScript.js"></script>
+    <script src="./scripts/modalScript.js"></script>
+    <script src="./scripts/notepadScripts.js"></script>
+    <script src="./scripts/caraouseScript.js"></script>
+    <script src="./scripts/horoscope.js"></script>
+</body>
+
+</html>

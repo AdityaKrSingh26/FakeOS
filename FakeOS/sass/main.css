@@ -1,0 +1,317 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Arimo", sans-serif;
+}
+
+.bodyWrapper {
+  background-image: url("../assets/bg.jpg");
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.iconContainer {
+  width: 50px;
+  padding: 10px 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+.iconContainer .iconBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70px;
+  width: 70px;
+  margin: 5px 0;
+}
+.iconContainer .iconBox img {
+  height: 40px;
+  margin-bottom: 5px;
+}
+.iconContainer .iconBox:hover {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+          backdrop-filter: saturate(180%) blur(10px);
+  border-radius: 2px;
+}
+
+.taskBar {
+  height: 50px;
+  background-color: #f3f3f3;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.taskBar .dateTimeContainer {
+  padding-right: 20px;
+}
+.taskBar #windowIcon:hover {
+  padding: 3px;
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+          backdrop-filter: saturate(180%) blur(10px);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.taskBar img {
+  height: 35px;
+  margin-left: 10px;
+}
+.taskBar img:hover {
+  cursor: pointer;
+}
+
+.startMenu {
+  height: 400px;
+  width: 300px;
+  position: absolute;
+  bottom: 55px;
+  left: 5px;
+  display: none;
+  background-color: #f3f3f3;
+}
+.startMenu .itemContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+.startMenu .itemContainer .itemBox {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0 10px 5px;
+  cursor: pointer;
+  background: rgba(122, 100, 100, 0.1);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+          backdrop-filter: saturate(180%) blur(10px);
+  border-radius: 2px;
+}
+.startMenu .itemContainer .itemBox:hover {
+  padding: 10px 0 10px 10px;
+}
+.startMenu .itemContainer .itemBox img {
+  height: 30px;
+}
+
+.modalContainer {
+  height: 400px;
+  width: 600px;
+  background-color: #f3f3f3;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid gainsboro;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.modalContainer .navBar {
+  height: 30px;
+  font-size: larger;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+}
+.modalContainer .navBar button {
+  height: 100%;
+  width: 30px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.modalContainer .navBar button:hover {
+  background-color: darkred;
+}
+
+#notepadModal {
+  display: none;
+}
+#notepadModal .toolBar {
+  margin: 10px 0;
+  height: 30px;
+  background-color: rgb(207, 201, 201);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+#notepadModal .toolBar button {
+  height: 100%;
+  width: 100px;
+  border: none;
+  background-color: gray;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+#notepadModal .textEditor {
+  height: 100%;
+}
+#notepadModal #text {
+  padding: 5px;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  font-family: "Arimo", sans-serif;
+  border: none;
+  outline: none;
+}
+
+#galleryModal,
+#horoscopeModal {
+  display: none;
+}
+
+.carousel-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.carousel-container .carousel {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.carousel-container .carousel .item {
+  opacity: 0;
+  width: 100%;
+  height: 340px;
+  display: none;
+  transition: opacity 0.5s ease-in-out;
+}
+.carousel-container .carousel .item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.carousel-container .carousel .item .caption {
+  width: 100%;
+  padding: var(--lx-space-01);
+  position: absolute;
+  bottom: 0;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.carousel-container .carousel .item.active {
+  opacity: 1;
+  display: block;
+}
+.carousel-container .btn {
+  padding: 1em 2em;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
+  color: #10100e;
+  background-color: gainsboro;
+  transition: transform 0.2s ease-in-out;
+}
+.carousel-container .btn:active, .carousel-container .btn:focus {
+  transform: translateY(-50%) scale(0.9);
+}
+.carousel-container .btn:hover {
+  transform: translateY(-50%) scale(0.96);
+}
+.carousel-container .prev {
+  left: 0;
+}
+.carousel-container .next {
+  right: 0;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.dot.active {
+  background-color: gray;
+}
+
+.main {
+  padding-top: 30px;
+  background-color: aliceblue;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  overflow-y: auto;
+}
+.main .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.main .inputGroup {
+  margin-bottom: 10px;
+}
+.main label {
+  font-size: 20px;
+}
+.main .btn {
+  width: 200px;
+}
+.main #finalAmount {
+  font-family: "Lobster", cursive;
+  padding-bottom: 30px;
+  margin: 10px auto 50px;
+  overflow: scroll;
+}
+.main #finalAmount h2 {
+  font-size: 50px;
+}
+.main #finalValue {
+  font-family: "Amiri", serif;
+  overflow-y: scroll;
+}/*# sourceMappingURL=main.css.map */

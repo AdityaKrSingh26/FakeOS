@@ -1,0 +1,66 @@
+@import "var";
+
+// Flexbox Mixins
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-center-column {
+    @include flex-center;
+    flex-direction: column;
+}
+
+// Icon Styles Mixin
+@mixin icon-styles {
+    width: $icon-size;
+    padding: $icon-padding 0 0 $icon-padding;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: $gap-size;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    text-align: center;
+}
+
+// Common Button Styles
+@mixin button-styles($bg-color, $color, $hover-bg) {
+    background-color: $bg-color;
+    color: $color;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: $hover-bg;
+    }
+}
+
+// Modal Styles
+@mixin modal-styles {
+    height: $modal-height;
+    width: $modal-width;
+    background-color: $background-color;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid gainsboro;
+    border-radius: $border-radius;
+    overflow: hidden;
+}
+
+// Input Group Styles
+@mixin input-group-styles {
+    margin-bottom: 10px;
+}
+
+// Common Font Styles
+@mixin font-styles($font-family, $font-size, $font-weight) {
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+}
