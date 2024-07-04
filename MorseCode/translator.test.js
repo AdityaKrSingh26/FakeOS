@@ -1,11 +1,27 @@
 const { translateTextToMorse, translateMorseToText } = require('./translator');
 
-test('translates text to Morse code', () => {
-    expect(translateTextToMorse('hello')).toBe('.... . .-.. .-.. ---');
-    expect(translateTextToMorse('SOS')).toBe('... --- ...');
+describe('translateTextToMorse', () => {
+    it('translates text to Morse code correctly', () => {
+        const input = 'HELLOwoRlD';
+        const expectedOutput = '.... . .-.. .-.. --- .-- --- .-. .-.. -..';
+        expect(translateTextToMorse(input)).toBe(expectedOutput);
+    });
+
+    it('throws error for invalid characters', () => {
+        const input = 'HElLO@WorLD'; // contains invalid character '@'
+        expect(() => translateTextToMorse(input)).toThrow('Invalid character: @');
+    });
 });
 
-test('translates Morse code to text', () => {
-    expect(translateMorseToText('.... . .-.. .-.. ---')).toBe('HELLO');
-    expect(translateMorseToText('... --- ...')).toBe('SOS');
+describe('translateMorseToText', () => {
+    it('translates Morse code to text correctly', () => {
+        const input = '.... . .-.. .-.. --- .-- --- .-. .-.. -..';
+        const expectedOutput = 'HELLOWORLD';
+        expect(translateMorseToText(input)).toBe(expectedOutput);
+    });
+
+    it('throws error for invalid Morse code', () => {
+        const input = '.... . .-.. .-.. @@@@ ---   .-- --- .-. .-.. -..'; // contains invalid Morse code '@@@@'
+        expect(() => translateMorseToText(input)).toThrow('Invalid Morse code: @@@@');
+    });
 });

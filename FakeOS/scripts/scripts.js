@@ -1,0 +1,6 @@
+import "./startMenuScript.js"
+import "./dateTimeScripts.js"
+import "./modalScript.js"
+import "./caraouseScript.js"
+import "./horoscope.js"
+import "./notepadScripts.js"

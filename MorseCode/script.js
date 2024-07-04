@@ -15,11 +15,26 @@ const morseToTextMap = {
 };
 
 function translateTextToMorse(text) {
-    return text.toUpperCase().split('').map(char => morseCodeMap[char] || '').join(' ');
+    const morseCodeArray = [];
+    for (let char of text.toUpperCase()) {
+        if (!morseCodeMap[char]) {
+            throw new Error(`Invalid character: ${char}`);
+        }
+        morseCodeArray.push(morseCodeMap[char]);
+    }
+    return morseCodeArray.join(' ');
 }
 
 function translateMorseToText(morse) {
-    return morse.split(' ').map(code => morseToTextMap[code] || '').join('');
+    const morseCodes = morse.trim().split(' ');
+    const textArray = [];
+    for (let code of morseCodes) {
+        if (!morseToTextMap[code] && code !== '') {
+            throw new Error(`Invalid Morse code: ${code}`);
+        }
+        textArray.push(morseToTextMap[code]);
+    }
+    return textArray.join('');
 }
 
 
@@ -29,14 +44,19 @@ const resultMorse = document.getElementById('resultMorse');
 const resultText = document.getElementById('resultText');
 
 textToMorse.addEventListener('click', () => {
-    const text = document.getElementById('text').value;
-    resultMorse.textContent = translateTextToMorse(text);
+    try {
+        const text = document.getElementById('text').value;
+        resultMorse.textContent = translateTextToMorse(text);
+    } catch (error) {
+        alert(error.message);
+    }
 });
 
 morseToText.addEventListener('click', () => {
-    const morseCode = document.getElementById('morseCode').value;
-    resultText.textContent = translateMorseToText(morseCode);
+    try {
+        const morseCode = document.getElementById('morseCode').value;
+        resultText.textContent = translateMorseToText(morseCode);
+    } catch (error) {
+        alert(error.message);
+    }
 });
-
-
-module.exports = { translateTextToMorse, translateMorseToText };

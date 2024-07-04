@@ -23,7 +23,6 @@ document.addEventListener("click", (event) => {
     }
 });
 
-
 // ----------------- GALLERY MODAL -----------------
 let galleryIcon = document.getElementById('galleryIcon');
 let galleryModal = document.getElementById('galleryModal');
