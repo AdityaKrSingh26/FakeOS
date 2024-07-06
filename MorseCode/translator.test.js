@@ -1,4 +1,7 @@
-const { translateTextToMorse, translateMorseToText } = require('./translator');
+import {
+    translateMorseToText,
+    translateTextToMorse
+} from "./translator.js"
 
 describe('translateTextToMorse', () => {
     it('translates text to Morse code correctly', () => {
