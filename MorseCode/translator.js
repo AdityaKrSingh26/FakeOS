@@ -34,10 +34,11 @@ function getKeyByValue(object, value) {
 }
 
 function translateTextToMorse(text) {
-    let finalMorse = "";
+    if (text === '') return '';
+    let finalMorse = '';
     for (let char of text.toUpperCase()) {
         if (char === ' ') {
-            finalMorse += '  ';
+            finalMorse += ' ';
             continue;
         }
         const morse = morseCodeMap[char];
@@ -50,13 +51,14 @@ function translateTextToMorse(text) {
 }
 
 function translateMorseToText(morse) {
+    if (morse === '') return '';
     const morseCodes = morse.trim().split(' ');
     const textArray = [];
     let spaceCount = 0;
     for (let code of morseCodes) {
         if (code === '') {
             spaceCount++;
-            if (spaceCount === 2) {
+            if (spaceCount === 1) {
                 textArray.push(' ');
                 spaceCount = 0;
             }
