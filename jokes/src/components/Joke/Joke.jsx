@@ -1,9 +1,10 @@
-const Joke = ({ joke }) => {
-  console.log("testing", joke);
+import React from "react";
+
+const Joke = ({ jokeTitle }) => {
   return (
-    <>
-      <h1>test{joke}</h1>
-    </>
+    <div>
+      <p>{jokeTitle}</p>
+    </div>
   );
 };
 

@@ -7,6 +7,6 @@ export const fetchDadJokes = async () => {
     // do some logging here to console or file
   }
   const data = await response.json();
-  console.log(data, "test");
+  // console.log(data, "test");
   return data;
 };

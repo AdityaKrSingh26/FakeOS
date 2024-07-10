@@ -6,12 +6,12 @@ import JokesLoaderContainer from "./containers/JokesLoaderContainer";
 function App() {
   return (
     <>
-      <FlexBox>
-        <JokesLoaderContainer />
-        {/* {taskList.map((taskList) => (
+      <JokesLoaderContainer />
+      {/* <FlexBox> */}
+      {/* {taskList.map((taskList) => (
           <Card task={taskList.task} priority={taskList.priority} />
         ))} */}
-      </FlexBox>
+      {/* </FlexBox> */}
     </>
   );
 }
