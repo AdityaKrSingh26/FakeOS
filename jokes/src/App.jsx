@@ -1,19 +1,24 @@
-import FlexBox from "./components/FlexBox/FlexBox";
-// import Card from "./components/Card/Card";
-// import taskList from "./data/data.json";
+import React, { useState } from "react";
+import SearchBar from "./components/SearchBar/SearcBar";
 import JokesLoaderContainer from "./containers/JokesLoaderContainer";
 
-function App() {
+const App = () => {
+  const [term, setTerm] = useState("");
+  const [limit, setLimit] = useState(5);
+  const [page, setPage] = useState(1);
+
+  const handleSearch = (searchTerm, jokeLimit) => {
+    setTerm(searchTerm);
+    setLimit(jokeLimit);
+    setPage(1); // Reset to the first page on new search
+  };
+
   return (
-    <>
-      <JokesLoaderContainer />
-      {/* <FlexBox> */}
-      {/* {taskList.map((taskList) => (
-          <Card task={taskList.task} priority={taskList.priority} />
-        ))} */}
-      {/* </FlexBox> */}
-    </>
+    <div className="App">
+      <SearchBar onSearch={handleSearch} />
+      <JokesLoaderContainer term={term} limit={limit} page={page} setPage={setPage} />
+    </div>
   );
-}
+};
 
 export default App;

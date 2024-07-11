@@ -1,29 +1,28 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 const SearchBar = ({ onSearch }) => {
-  const [input, setInput] = useState("");
+  const [term, setTerm] = useState("");
+  const [limit, setLimit] = useState(5);
 
-  const onInputChange = (event) => {
-    setInput(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("searched for " + input);
-    onSearch(input);
-    setInput("");
+  const handleSearch = () => {
+    onSearch(term, limit);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div>
       <input
         type="text"
-        placeholder="search"
-        value={input}
-        onChange={onInputChange}
+        value={term}
+        onChange={(e) => setTerm(e.target.value)}
+        placeholder="Search for a joke"
       />
-      <button>Search</button>
-    </form>
+      <select value={limit} onChange={(e) => setLimit(Number(e.target.value))}>
+        <option value={5}>5</option>
+        <option value={10}>10</option>
+        <option value={15}>15</option>
+      </select>
+      <button onClick={handleSearch}>Search</button>
+    </div>
   );
 };
 
