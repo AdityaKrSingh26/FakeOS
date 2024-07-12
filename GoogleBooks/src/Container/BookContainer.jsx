@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import BookCard from '../Components/BookCard/BookCard';
+import styles from './BookContainer.module.scss';
 
-function BookContainer() {
-    return (
-        <div>BookContainer</div>
-    )
-}
+const BookContainer = ({ books }) => (
 
-export default BookContainer
+    <div className={styles.bookGrid}>
+        {books.map((book) => (
+            <BookCard key={book.id} book={book} />
+        ))}
+    </div>
+
+);
+
+export default BookContainer;

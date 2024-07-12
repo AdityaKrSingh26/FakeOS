@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import styles from './BookCard.module.scss';
 
-function BookCard() {
+const BookCard = ({ book }) => {
+    const { volumeInfo } = book;
     return (
-        <div>BookCard</div>
-    )
-}
+        <div className={styles.book}>
+            <img src={volumeInfo.imageLinks?.thumbnail} alt={volumeInfo.title} />
+            <h3>{volumeInfo.title}</h3>
+            <p>{volumeInfo.authors?.join(', ')}</p>
+            {/* <p>{volumeInfo.description}</p> */}
+        </div>
+    );
+};
 
-export default BookCard
+export default BookCard;
