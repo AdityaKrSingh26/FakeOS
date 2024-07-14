@@ -8,9 +8,8 @@ export const fetchBooks = async (query, maxResults = 10,) => {
             throw new Error('Failed to fetch books');
         }
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         return data;
-
     } catch (error) {
         console.log(error)
     }
