@@ -1,0 +1,50 @@
+.digitalID {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+
+    &.nsw {
+        background-color: #e0f7fa;
+    }
+
+    &.vic {
+        background-color: #f1f8e9;
+    }
+
+    &.qld {
+        background-color: #fff3e0;
+    }
+
+    .photo {
+        img {
+            border-radius: 50%;
+            max-width: 100px;
+        }
+
+        .placeholder {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .details {
+        margin-top: 10px;
+
+        h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+    }
+}
