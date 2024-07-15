@@ -1,11 +1,15 @@
 .book {
-  width: 300px;
+  width: 100%;
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 10px;
   margin: 10px;
   text-align: center;
   background-color: #f9f9f9;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 30px;
 
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -18,11 +22,13 @@
   }
 
   h3 {
+    text-align: left;
     font-size: 1.2rem;
     margin: 10px 0;
   }
 
   p {
+    text-align: left;
     font-size: 1rem;
     color: #555;
   }

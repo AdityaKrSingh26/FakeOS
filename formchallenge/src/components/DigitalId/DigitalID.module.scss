@@ -1,0 +1,46 @@
+.digital_id_container {
+  width: 400px;
+  margin-top: 20px;
+  background-color: cyan;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+  }
+
+  h2 {
+    margin-bottom: 15px;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  img {
+    margin: auto auto;
+    width: 200px;
+    height: 300px;
+    border-radius: 4px;
+  }
+
+  .photo {
+    img {
+      // border-radius: 50%;
+      width: 200px;
+      height: auto;
+    }
+
+    .placeholder {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
