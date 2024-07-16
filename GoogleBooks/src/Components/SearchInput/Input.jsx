@@ -4,11 +4,6 @@ import styles from "./Input.module.scss";
 function Input({ onSearch }) {
   const [query, setQuery] = useState('');
 
-  useEffect(() => {
-    if (query.length > 0)
-      onSearch(query);
-  }, [query]);
-
   return (
     <form className={styles.searchForm} onSubmit={(e) => e.preventDefault()}>
       <input
@@ -18,6 +13,10 @@ function Input({ onSearch }) {
         placeholder="Search for books"
         required
       />
+      <button type="submit" onClick={() => onSearch(query)}>
+        Search
+      </button>
+
     </form>
   );
 }

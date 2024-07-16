@@ -13,14 +13,30 @@ const App = () => {
   const [error, setError] = useState(null);
   const [query, setQuery] = useState('');
   const [selectedBook, setSelectedBook] = useState(null);
+  const [currentPage, setCurrentPage] = useState(0);
 
   const handleSearch = async (searchQuery) => {
     setLoading(true);
     setError(null);
     setQuery(searchQuery);
+    setCurrentPage(0);
     try {
       const data = await fetchBooks(searchQuery);
       setBooks(data.items || []);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handlePageChange = async (page) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const data = await fetchBooks(query, 10, page * 10);
+      setBooks(data.items || []);
+      setCurrentPage(page);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -44,6 +60,22 @@ const App = () => {
       {error && <p>{error}</p>}
       <BookContainer books={books} onBookClick={handleBookClick} />
       <Modal show={selectedBook !== null} onClose={handleCloseModal} book={selectedBook} />
+      <div className="pagination">
+        <button
+          disabled={currentPage === 0}
+          onClick={() => handlePageChange(currentPage - 1)}
+        >
+          Previous
+        </button>
+        <span>
+          Page {currentPage + 1}
+        </span>
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };
