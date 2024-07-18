@@ -22,6 +22,9 @@ const App = () => {
     setCurrentPage(0);
     try {
       const data = await fetchBooks(searchQuery);
+      if (data.items === undefined) {
+        throw new Error("No books found");
+      }
       setBooks(data.items || []);
     } catch (error) {
       setError(error.message);
