@@ -13,6 +13,24 @@
         gap: 40px;
         margin: 40px;
     }
+
+    .flexC {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+        width: 100%;
+
+        button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+
+            img {
+                height: 40px;
+            }
+        }
+    }
     .productDesc__img {
         box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2);
         width: 300px;
