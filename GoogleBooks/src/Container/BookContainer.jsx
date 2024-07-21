@@ -1,13 +1,14 @@
-import React from 'react';
-import BookCard from '../Components/BookCard/BookCard';
-import styles from './BookContainer.module.scss';
+import styles from "./BookContainer.module.scss"
+import BookCard from "../components/BookCard/BookCard"
 
-const BookContainer = ({ books, onBookClick }) => (
-    <div className={styles.bookGrid}>
-        {books.map((book) => (
-            <BookCard key={book.id} book={book} onBookClick={onBookClick} />
-        ))}
+const BookContainer = ({books, onBookClick}) => {
+  return (
+    <div className = {styles.bookGrid}>
+      {books.map((book)=>(
+        <BookCard key ={book.id} book={book} onBookClick={onBookClick}/>
+      ))}
     </div>
-);
+  )
+}
 
-export default BookContainer;
+export default BookContainer

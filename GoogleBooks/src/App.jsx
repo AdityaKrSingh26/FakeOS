@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
-import "./App.css";
+import { useState } from "react"
+import Header from "./components/Header/Header"
+import SearchForm from "./components/SearchForm/SearchForm"
+import { fetchBooks } from "./services/booksApi";
+import BookContainer from "./container/BookContainer";
+import Modal from "./components/Modal/Modal";
 
-import Header from "./Components/Header/Header";
-import Input from "./Components/SearchInput/Input";
-import BookContainer from "./Container/BookContainer";
-import Modal from "./Components/Modal/Modal.jsx";
-import { fetchBooks } from './services/BooksApi';
+
 
 const App = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [query, setQuery] = useState('');
   const [selectedBook, setSelectedBook] = useState(null);
-  const [currentPage, setCurrentPage] = useState(0);
+
 
   const handleSearch = async (searchQuery) => {
     setLoading(true);
     setError(null);
-    setQuery(searchQuery);
-    setCurrentPage(0);
+    setBooks([])
     try {
       const data = await fetchBooks(searchQuery);
-      if (data.items === undefined) {
-        throw new Error("No books found");
+      console.log(data);
+      if (data.totalItems === 0) {
+        setError(`No books found for this ${searchQuery} search`)
+        return;
       }
       setBooks(data.items || []);
     } catch (error) {
@@ -33,19 +33,10 @@ const App = () => {
     }
   };
 
-  const handlePageChange = async (page) => {
-    setLoading(true);
+  const clearSearch = () => {
+    setBooks([]);
     setError(null);
-    try {
-      const data = await fetchBooks(query, 10, page * 10);
-      setBooks(data.items || []);
-      setCurrentPage(page);
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+  }
 
   const handleBookClick = (book) => {
     setSelectedBook(book);
@@ -58,29 +49,13 @@ const App = () => {
   return (
     <div>
       <Header />
-      <Input onSearch={handleSearch} />
+      <SearchForm onSearch={handleSearch} onClearSearch={clearSearch} />
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       <BookContainer books={books} onBookClick={handleBookClick} />
       <Modal show={selectedBook !== null} onClose={handleCloseModal} book={selectedBook} />
-      <div className="pagination">
-        <button
-          disabled={currentPage === 0}
-          onClick={() => handlePageChange(currentPage - 1)}
-        >
-          Previous
-        </button>
-        <span>
-          Page {currentPage + 1}
-        </span>
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-        >
-          Next
-        </button>
-      </div>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
