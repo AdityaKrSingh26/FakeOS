@@ -18,7 +18,10 @@
 
   img {
     max-width: 100%;
-    height: auto;
+    width: 200px;
+    height: 150px;  // Ensure the image height is set
+    object-fit: cover;  // Ensure the image covers the given height and width
+    background-color: #555;
   }
 
   h3 {
@@ -27,7 +30,7 @@
     margin: 10px 0;
   }
 
-  p{
+  p {
     text-align: left;
     font-size: 1rem;
     color: #555;

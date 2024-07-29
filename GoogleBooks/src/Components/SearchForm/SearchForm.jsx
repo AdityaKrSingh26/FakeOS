@@ -22,7 +22,7 @@ const SearchForm = ({ onSearch, onClearSearch }) => {
           placeholder="Search for books"
           required
         />
-        <button onClick={clearSearch}>X</button>
+        <button onClick={clearSearch} type="button">X</button>
         <button className={styles.searchbtn} type="submit" onClick={() => onSearch(query)}>
           Search
         </button>

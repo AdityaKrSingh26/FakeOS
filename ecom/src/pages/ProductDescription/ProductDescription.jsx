@@ -11,14 +11,17 @@ function ProductDescription() {
     const navigate = useNavigate();
     const [product, setProduct] = useState(null);
     const [isFavorite, setIsFavorite] = useState(false);
+    const [selectedVariant, setSelectedVariant] = useState(null);
 
     useEffect(() => {
         const fetchProduct = async () => {
             const docRef = doc(db, 'products', id);
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
-                setProduct(docSnap.data());
-                setIsFavorite(docSnap.data().favourited);
+                const productData = docSnap.data();
+                setProduct(productData);
+                setIsFavorite(productData.favourited);
+                setSelectedVariant(productData.variants ? productData.variants[0] : null);
             } else {
                 console.log('No such document!');
             }
@@ -36,6 +39,10 @@ function ProductDescription() {
         await updateDoc(docRef, {
             favourited: newFavoriteStatus
         });
+    };
+
+    const handleVariantChange = (variant) => {
+        setSelectedVariant(variant);
     };
 
     if (!product) {
@@ -66,8 +73,24 @@ function ProductDescription() {
                     <p className={styles.productDesc__info__desc}>
                         {product.description}
                     </p>
+
+                    {product.variants && (
+                        <div className={styles.variants}>
+                            <h3>Select Variant</h3>
+                            {product.variants.map((variant, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => handleVariantChange(variant)}
+                                    className={selectedVariant === variant ? styles.selected : ''}
+                                >
+                                    {variant.name} - ${variant.price}
+                                </button>
+                            ))}
+                        </div>
+                    )}
+
                     <p className={styles.productDesc__info__price}>
-                        Price: ${product.price}
+                        Price: ${selectedVariant ? selectedVariant.price : product.price}
                     </p>
                     <button onClick={() => navigate('/cart')} className={styles.productDesc__info__btn}>
                         Add to Cart

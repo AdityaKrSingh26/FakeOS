@@ -11,9 +11,9 @@ function CartCard() {
                 <h3>Product Name</h3>
                 <p>Price: $100</p>
                 <p className={styles.quantityButton}>Quantity:
-                    <button >-</button>
+                    <button>-</button>
                     1
-                    <button >+</button>
+                    <button>+</button>
                 </p>
                 <button className={styles.removeButton}>Remove</button>
             </div>

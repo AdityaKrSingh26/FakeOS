@@ -15,7 +15,6 @@ function Home() {
             const productList = productSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
             setProducts(productList);
         };
-
         fetchProducts();
     }, []);
 

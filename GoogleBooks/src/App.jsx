@@ -1,11 +1,9 @@
-import { useState } from "react"
-import Header from "./components/Header/Header"
-import SearchForm from "./components/SearchForm/SearchForm"
+import { useState } from "react";
+import Header from "./components/Header/Header";
+import SearchForm from "./components/SearchForm/SearchForm";
 import { fetchBooks } from "./services/booksApi";
 import BookContainer from "./container/BookContainer";
 import Modal from "./components/Modal/Modal";
-
-
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -13,16 +11,22 @@ const App = () => {
   const [error, setError] = useState(null);
   const [selectedBook, setSelectedBook] = useState(null);
 
-
   const handleSearch = async (searchQuery) => {
+    // Check for invalid characters
+    const invalidChars = /[&?=\/]/;
+    if (invalidChars.test(searchQuery)) {
+      setError("Invalid character(s) in search query");
+      return;
+    }
+
     setLoading(true);
     setError(null);
-    setBooks([])
+    setBooks([]);
     try {
       const data = await fetchBooks(searchQuery);
       console.log(data);
       if (data.totalItems === 0) {
-        setError(`No books found for this ${searchQuery} search`)
+        setError(`No books found for this "${searchQuery}" search`);
         return;
       }
       setBooks(data.items || []);
@@ -36,7 +40,7 @@ const App = () => {
   const clearSearch = () => {
     setBooks([]);
     setError(null);
-  }
+  };
 
   const handleBookClick = (book) => {
     setSelectedBook(book);
@@ -55,7 +59,7 @@ const App = () => {
       <BookContainer books={books} onBookClick={handleBookClick} />
       <Modal show={selectedBook !== null} onClose={handleCloseModal} book={selectedBook} />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

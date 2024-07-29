@@ -78,3 +78,30 @@
         }
     }
 }
+
+.variants {
+    margin: 20px 0;
+
+    button {
+        margin-right: 10px;
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+        background-color: white;
+        &:hover {
+            background-color: #f0f0f0;
+        }
+    }
+
+    .selected {
+        background-color: #e0e0e0;
+        font-weight: bold;
+    }
+}
+
+.productDesc__info__price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
