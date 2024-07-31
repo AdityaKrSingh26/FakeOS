@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../config/Firestore';
+import { addToCart } from '../../config/services';
 import styles from './ProductDescription.module.scss';
 import Heart from "../../assets/heart.png";
 import HeartFilled from "../../assets/heartFilled.png";
@@ -43,6 +44,29 @@ function ProductDescription() {
 
     const handleVariantChange = (variant) => {
         setSelectedVariant(variant);
+    };
+
+    const handleAddToCart = async () => {
+        if (product && selectedVariant) {
+            // console.log('Adding product to cart: ', product, selectedVariant);
+            const productToAdd = {
+                id: product.id,
+                name: product.name,
+                price: selectedVariant.price,
+                quantity: 1,
+                imageUrl: product.imageUrl,
+                variant: selectedVariant.name
+            };
+
+            try {
+                await addToCart(productToAdd);
+                navigate('/cart');
+            } catch (error) {
+                console.error('Failed to add product to cart: ', error);
+            }
+        } else {
+            console.error('Product or variant is missing');
+        }
     };
 
     if (!product) {
@@ -92,7 +116,7 @@ function ProductDescription() {
                     <p className={styles.productDesc__info__price}>
                         Price: ${selectedVariant ? selectedVariant.price : product.price}
                     </p>
-                    <button onClick={() => navigate('/cart')} className={styles.productDesc__info__btn}>
+                    <button onClick={handleAddToCart} className={styles.productDesc__info__btn}>
                         Add to Cart
                     </button>
                 </div>

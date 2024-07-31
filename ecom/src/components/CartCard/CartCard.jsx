@@ -1,24 +1,32 @@
-import React from 'react'
-import styles from './CartCard.module.scss'
+import React from 'react';
+import styles from './CartCard.module.scss';
 
-function CartCard() {
+function CartCard({ product, removeFromCart, updateQuantity }) {
+    const handleQuantityChange = (change) => {
+        const newQuantity = product.quantity + change;
+        if (newQuantity > 0) {
+            updateQuantity(product.id, newQuantity);
+        }
+    };
+
     return (
         <div className={styles.cardCrat}>
             <div className={styles.cardImage}>
-                <img src="https://via.placeholder.com/150" alt="Product" />
+                <img src={product.imageUrl} alt={product.name} />
             </div>
             <div className={styles.cartInfo}>
-                <h3>Product Name</h3>
-                <p>Price: $100</p>
-                <p className={styles.quantityButton}>Quantity:
-                    <button>-</button>
-                    1
-                    <button>+</button>
+                <h3>{product.name}</h3>
+                <p>Price: ${product.price}</p>
+                <p className={styles.quantityButton}>
+                    Quantity:
+                    <button onClick={() => handleQuantityChange(-1)}>-</button>
+                    {product.quantity}
+                    <button onClick={() => handleQuantityChange(1)}>+</button>
                 </p>
-                <button className={styles.removeButton}>Remove</button>
+                <button onClick={() => removeFromCart(product.id, product.quantity)} className={styles.removeButton}>Remove</button>
             </div>
         </div>
-    )
+    );
 }
 
-export default CartCard
+export default CartCard;

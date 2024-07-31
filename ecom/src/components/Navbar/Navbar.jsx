@@ -9,7 +9,7 @@ function Navbar() {
 
     return (
         <div className={styles.navbar}>
-            <h1>e-cShop</h1>
+            <h1 onClick={() => navigate('/')}>e-cShop</h1>
 
             <div className="icons">
                 <button onClick={() => navigate('/cart')}>

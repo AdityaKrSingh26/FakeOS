@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from './components/Navbar/Navbar'
-import Home from './pages/Home/Home'
-import Cart from './pages/Cart/Cart'
-import ProductDescription from './pages/ProductDescription/ProductDescription'
+import Navbar from './components/Navbar/Navbar';
+import Home from './pages/Home/Home';
+import Cart from './pages/Cart/Cart';
+import ProductDescription from './pages/ProductDescription/ProductDescription';
 import './App.css';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
