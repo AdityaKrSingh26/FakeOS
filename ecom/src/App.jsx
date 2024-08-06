@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import Cart from './pages/Cart/Cart';
 import ProductDescription from './pages/ProductDescription/ProductDescription';
+import Favourite from './pages/Favourite/Favourite';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:id" element={<ProductDescription />} />
+          <Route path="/fav" element={<Favourite />} />
         </Routes>
       </div>
     </BrowserRouter>
